@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        //数组使用方括号定义数组，成员直接放在方括号中，一个数组可以放不同类型的成员
+        var array1 = [123, "123"];
+
+        //本质还是数组，但是表现出键值对的样子，其实我们一般还是看做一个对象，就是不需要定义类的类型，直接新建了一个对象
+        var array2 =
+        {
+            name: "张三",
+            age: 18,
+            gender: "男"
+        };
+
+        //将array2看做键值对：通过键的方式来访问
+        alert(array2["name"]);
+        //将array2看做对象：当做对象来访问属性值
+        alert(array2.name);
+
+
+        //定义json数组
+        var temp = 
+        [
+        { title: "张三", age: 18 },
+        { title: "李四", age: 19 },
+        { title: "王五", age: 20 }
+        ]
+
+        //遍历数组，输出每个对象的title值
+        for (var index in temp)//因为temp是数组所以temp是索引
+        {
+            alert(temp[index].title);
+        }
+
+
+
+    </script>
+</body>
+</html>
