@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        //声明一个对象Person
+        //注意使用的关键字是和函数一样的function，其实本质就是一个函数，但怎么区分呢？
+        //我们默认的定义函数时使用小驼峰命名法，而声明一个类时使用Pascal命名法
+        function Person(name)
+        {
+            this.Name = name; //在类中定义一个属性，初始化值为name
+            this.say = function ()
+            {
+                alert(name); //其实name在子函数中使用就是形成了闭包，这样就是闭包的主要用处
+            };
+        }
+
+
+        //定义一个类的另外一种方法
+        function Person1() { } //在定义类时，不给他定义成员
+        //新建一个Person1类型的对象p1
+        var p1 = new Person1();
+        //根据实例对象给对象添加属性和方法，
+        //注意添加的属性和方法是给对象p1的，不是给类Person1的，
+        //你在新建一个Person1对象p2，p2还是没有属性和方法的
+        p1.Name = "吴彦祖1";
+        p1.say = function ()
+        {
+            alert(p1.Name);
+        };
+
+        p1.say();
+
+
+
+
+
+        //新建一个Person对象
+        var p = new Person("吴彦祖");
+        p.say();
+
+
+        alert(typeof (p)); //返回值是object
+        alert(typeof (Person("吴彦祖"))); //返回值是undefined,这里就Person()当做是函数，但是这个函数没有返回值，所以就是undefined
+        alert(typeof (Person)); //返回值是function，其实你也看到了在js中，类就是通过函数模拟的
+
+
+
+
+    </script>
+</body>
+</html>

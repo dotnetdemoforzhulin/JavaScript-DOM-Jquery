@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input type="button" name="btnShow" id="btnShow" value="显示" />
+    <script type="text/javascript" >
+        //根据id获取元素，因为id唯一，所以只返回一个dom对象
+        var temp1 = document.getElementById("btnShow");
+
+        //name是可以重复的，所以返回的而是一个dom对象数组
+        var temp2 = document.getElementsByName("btnShow");
+
+
+        //访问属性
+        temp1.value="显示test"
+
+    </script>
+</body>
+</html>

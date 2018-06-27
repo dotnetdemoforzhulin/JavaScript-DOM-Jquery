@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #msg
+        {
+          
+            position: absolute; /*绝对定位*/
+            border: 1px solid red;
+            background-color: Blue;
+            color: white;
+            with: 100px;
+        }
+    </style>
+    <script>
+        onload = function ()
+        {
+            setInterval(run, 200);
+        }
+
+        var leftposition = 0;
+        var direction = 1;//方向
+        function run()
+        {
+            leftposition += 10 * direction;
+            if (leftposition + 100>=window.innerWidth)
+            {
+                direction = -1;
+            }
+            if (leftposition <= 0)
+            {
+                direction = 1;
+            }
+
+
+            var msg = document.getElementById("msg")
+            msg.style.left = leftposition + "px";
+        }
+    </script>
+</head>
+<body>
+    <div id="msg">
+        跑马灯</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+        onload = function ()
+        {
+            //追加图片
+            document.getElementById("btnImg").onclick = function ()
+            {
+                //创建img对象
+                var img = document.createElement("img");
+                //通过属性src指定要显示的图片
+                img.src = "images/1.png";
+                //在div中追加图片对象
+                document.getElementById("divContainer").appendChild(img);
+            };
+            //追加文本框
+            document.getElementById("btnText").onclick = function ()
+            {
+                var input = document.createElement("input");
+                input.type = "text";
+                document.getElementById("divContainer").appendChild(input);
+            }
+
+            //追加超链接
+            document.getElementById("btnA").onclick = function ()
+            {
+                var a = document.createElement("a");
+                a.href = "06Event.html";
+                //注意凡是在html中是写在<> ....</>中的都要使用innerXXX来添加
+                a.innerHTML = "点击跳转";
+                document.getElementById("divContainer").appendChild(a);
+            }
+
+
+            //删除所有元素
+            document.getElementById("btnRemove").onclick = function ()
+            {
+                //获取div中的所有子元素
+                var childs = document.getElementById("divContainer").childNodes;
+                //注意为没删一个元素，此时childs的长度也在变，但是i确实一直增长到最初的childs的长度
+                //所以我们倒着删除，让i--
+                for (var i = childs.length - 1; i >= 0; i--)
+                {
+                    document.getElementById("divContainer").removeChild(childs[i]);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btnImg" value="图片" />
+    <input type="button" id="btnText" value="文本" />
+    <input type="button" id="btnA" value="超链接" />
+    <input type="button" id="btnRemove" value="删除所有按钮" />
+    <div id="divContainer">
+    </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+D:\Documents\Visual Studio 2010\Projects\JavaScript\Javascript\bin\01hello word.dll
+D:\Documents\Visual Studio 2010\Projects\JavaScript\Javascript\bin\01hello word.pdb
+D:\Documents\Visual Studio 2010\Projects\JavaScript\Javascript\obj\Debug\01hello word.dll
+D:\Documents\Visual Studio 2010\Projects\JavaScript\Javascript\obj\Debug\01hello word.pdb

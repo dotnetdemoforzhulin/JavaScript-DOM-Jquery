@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script type='text/javascript'>
+
+        //原型是指对象的类型，类似C#中的类型的Type
+        function Person()
+        {
+            this.Name = "张三";
+        }
+
+        var p = new Person()
+        p.Age = 20; //你给对象又添加了一个属性，类型Person没有这个属性
+        alert(p.Age);
+
+        //但是我可以通过现有的对象给对象的原型添加属性
+        p.__proto__.Gender = "男"; //注意__proto__两边是两条下划线
+
+        //当然，你也可以使用对象类型直接为原型添加属性
+        Person.prototype.Score = 100;
+
+        var p2 = new Person();
+        alert(p2.Gender);
+        alert(p2.Score);
+    
+
+    </script>
+</body>
+</html>
