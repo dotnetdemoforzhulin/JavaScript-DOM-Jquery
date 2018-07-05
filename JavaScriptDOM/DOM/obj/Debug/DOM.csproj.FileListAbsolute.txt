@@ -1,4 +1,0 @@
-D:\Documents\Visual Studio 2010\Projects\JavaScript\DOM\bin\DOM.dll
-D:\Documents\Visual Studio 2010\Projects\JavaScript\DOM\bin\DOM.pdb
-D:\Documents\Visual Studio 2010\Projects\JavaScript\DOM\obj\Debug\DOM.dll
-D:\Documents\Visual Studio 2010\Projects\JavaScript\DOM\obj\Debug\DOM.pdb
