@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        div
+        {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        onload = function ()
+        {
+            document.getElementById('btnShow').onclick = function ()
+            {
+                var divShow = document.getElementById("divShow");
+
+                if (this.value == "隐藏")
+                {
+                    this.value = "显示";
+                    divShow.style.display = 'none';
+                }
+                else
+                {
+                    this.value = "隐藏";
+                    divShow.style.display = 'block';
+                }
+            }
+        }
+    
+    </script>
+</head>
+<body>
+    <input type="button" id="btnShow" value="隐藏" />
+    <div id="divShow">
+        123</div>
+</body>
+</html>

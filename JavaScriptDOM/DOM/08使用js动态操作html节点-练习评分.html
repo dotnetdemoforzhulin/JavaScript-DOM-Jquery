@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        onload = function ()
+        {
+            //通过标签名获取所有的对象
+            var imgs = document.getElementsByTagName("img");
+
+
+            for (var index in imgs)
+            {  //遍历所有的图片对象，为每一个图片注册指向事件
+                imgs[index].onmouseover = function ()//注意这个onmouseover()函数是查文档查到的,叫“指向”事件，这个事件的是意思是当鼠标一直放上去时，触发事件
+                {
+                    //获取你当前鼠标放在的图片的id
+                    var id = this.id;
+
+                    for (var i = 0; i < imgs.length; i++)
+                    {
+                        if (i <= id)//当前元素之前的所有元素
+                        {
+                            imgs[i].src = "images/star2.png";
+                        }
+                        else//当前元素之后的所有元素
+                        {
+                            imgs[i].src = "images/star1.png";
+                        }
+                    }
+
+                };
+
+
+                //为每一个元素注册一个移开事件
+                imgs[index].onmouseout = function ()
+                {
+                    //点击元素的之前元素全部改为带色图片
+                    for (var i = 0; i <= clickIndex; i++)
+                        imgs[i].src = "images/star2.png";
+
+                    //点击元素的之后元素全部改为无色
+                    for (var i = clickIndex+1; i < imgs.length; i++)
+                        imgs[i].src = "images/star1.png";
+
+                }
+
+                imgs[index].onclick = function ()
+                {
+                    //记录下来被点击的元素的索引(注意我们在这里是把索引和图片编号设置一样的）
+                    //你记录点击的元素索引做什么啊？是为了将这个索引给onmouseout事件中处理
+                    clickIndex = parseInt(this.id);
+                }
+
+
+
+            }
+        }
+    
+
+    
+    </script>
+</head>
+<body>
+    <img id="0" src="images/star1.png" />
+    <img id="1" src="images/star1.png" />
+    <img id="2" src="images/star1.png" />
+    <img id="3" src="images/star1.png" />
+    <img id="4" src="images/star1.png" />
+</body>
+</html>

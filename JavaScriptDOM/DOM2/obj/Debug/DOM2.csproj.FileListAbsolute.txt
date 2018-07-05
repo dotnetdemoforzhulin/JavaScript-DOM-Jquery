@@ -1,0 +1,4 @@
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\DOM2\bin\DOM2.dll
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\DOM2\bin\DOM2.pdb
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\DOM2\obj\Debug\DOM2.dll
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\DOM2\obj\Debug\DOM2.pdb

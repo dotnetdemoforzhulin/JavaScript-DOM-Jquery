@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+    #img1
+    {
+        position:absolute;
+        border:1px solid red;
+        width:100px;
+        height:100px;
+    }
+    </style>
+    <script >
+        onload = function ()
+        {
+            window.onmousemove = function (e)//e为当前鼠标的一些参数
+            {
+                var img1 = document.getElementById('img1');
+//                img1.style.left = e.clientX + 'px'; //e.clientX当前鼠标的x坐标
+//                img1.style.top = e.clientY + 'px';
+                //注意我们去的是图片的左上角，如果是要是让图片中心对着鼠标呢，你就让e.clientX -parseInt(img.style.width)/2
+                img1.style.left = e.clientX - parseInt(img1.width)/2 + 'px'
+                img1.style.top = e.clientY - parseInt(img1.height)/2 + 'px';
+            }
+        }
+    </script>
+  
+
+</head>
+<body>
+    <img id='img1' src="http://localhost:24263/images/star2.png" />
+</body>
+</html>

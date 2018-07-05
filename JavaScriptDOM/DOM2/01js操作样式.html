@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        .d
+        {
+            color: white;
+        }
+    </style>
+    <script type="text/javascript">
+        onload = function ()
+        {
+            var div1 = document.getElementById('div1');
+            div1.style.width = '200px'; //用js操作样式
+            //注意当样式的属性是带有“-”，比如说background-color,则就要去掉“-”，让后将“-”后的单词首字母大写
+            div1.style.backgroundColor = 'blue'; //用js操作样式
+
+            //使用js操作CSS 的样式选择器，比如说这里用来操作样式类,把Class样式选择器用于div1
+            div1.className = 'd';
+
+            //注意float是保留关键字，用js操作时，前面加上css
+            div1.style.cssFloat = 'right';//div右浮
+
+        };
+    </script>
+</head>
+<body>
+    <div id="div1" style="width: 100px; height: 100px; border: 1px solid red;">
+        123</div>
+</body>
+</html>

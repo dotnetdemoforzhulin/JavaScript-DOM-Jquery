@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        //注意之前使用的哪些方法啊，其实都是属于window的，可以省略,也可以写作self
+
+
+        //this关键字
+        //我们熟悉的c#有this关键字，它的主要作用就是指代当前对象实例（参数传递和索引器都要用到this）。
+        //在javascript中，this通常指向的是我们正在执行的函数本身，或者是指向该函数所属的对象（运行时）。
+
+
+//        Javascript中的location.href有很多种用法，主要如下：
+//        self.location.href="/url" 当前页面打开URL页面
+//        location.href="/url" 当前页面打开URL页面
+//        windows.location.href="/url" 当前页面打开URL页面，前面三个用法相同。
+//        this.location.href="/url" 当前页面打开URL页面
+//        parent.location.href="/url" 在父页面打开新页面
+//        top.location.href="/url" 在顶层页面打开新页面
+
+        //将本页面的地址栏的url进行改写，实现页面跳转
+        window.location.href = "http://www.baidu.com";
+
+
+
+    </script>
+</body>
+</html>

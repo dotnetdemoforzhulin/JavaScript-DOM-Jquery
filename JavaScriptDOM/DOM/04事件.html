@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+
+        //onload是表示在页面加载完成
+        onload = function showvalue()
+        {
+            document.getElementById("span1").onclick = function ()
+            {
+                alert("加载完成");
+            }
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <!--1.在元素上注册事件,也就是直接在 input标签的属性 事件onclick上写你要实现的功能
+    注意，其实这样就是把html代码和js代码写在了一起-->
+    <input type="button" id="btnShow1" value="显示1" onclick="alert(value)" />
+    <!--  2.动态注册-->
+    <input type="button" id="btnShow2" value="显示2" />
+    <script>
+        //推荐使用这种方式进行事件注册，这样使得html代码和js代码分离
+        // document.getElementById("btnShow2").onclick = function () { alert(this.value) }
+        document.getElementById("btnShow2").onclick = function () { alert(this.value) }
+    </script>
+    <span id="span1">点击显示</span>
+</body>
+</html>

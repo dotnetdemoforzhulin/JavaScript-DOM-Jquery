@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        //提示框，只有一个"确认"按钮--------------------------------------------------提示框
+        alert("123")
+
+
+        //确定框，有确定和取消按钮----------------------------------------------------确定框
+        //有返回值,为true和false，可以根据返回值进行判断与操作
+        var result = confirm("确定删除吗？");
+        if (result == true)
+        {
+            alert("删除成功");
+        }
+        else
+        {
+            alert("已取消删除");
+        }
+
+
+        //输入框，有一个确定按钮一个取消按钮-------------------------------------------输入框
+        //返回值:点击确定按钮则返回你输入的值，你什么不输入，点击确定则是显示空字符串
+        //      点击取消则返回null
+        var result = prompt("请输入您的年龄", "10"); //第二个参数默认的文本框中的数字为10
+        alert(result);
+
+
+        //---------------------------------------------------------------------------定时器
+        //setlnterval(“code”,deley)表示每隔delay毫秒执行一次代码code ，interval单词意义是间隔
+        //如果code中的代码太多，可以封装到一个函数中，直接把函数作为参数，
+        //code代码作为参数要加引号，但是封装到函数后，就不需要了
+        //返回值是int类型的值，表示定时器的标识，可以用于清除定时器：clearInterval(intervalId)
+        //一个页面尽量只使用一个定时器，太多影响性能
+        var intervalId = self.setInterval("clock()", 50)
+        //每个50毫秒刷新时间，实现了时钟功能
+        function clock()
+        {
+            var t = new Date()
+            document.getElementById("clock").value = t.toLocaleString();
+        }
+
+
+        //----------------------------------------------------------------------延时器
+        //setTimeout("code",dealy)表示等待delay毫秒在执行code代码
+        //code代码作为参数要加引号，但是封装到函数后，就不需要了
+        function timedMsg()
+        {
+            var t = setTimeout("alert('5 seconds!')", 5000)
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <input type="text" id="clock" size="35" />
+    <input type="button" value="停止" onclick="clearInterval(intervalId)" />
+    <input type="button" value="点击此按钮，5s之后弹出确认框" onclick="timedMsg()"/>
+</body>
+</html>

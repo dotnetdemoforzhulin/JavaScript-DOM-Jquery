@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script >
+
+        onload = function ()
+        {
+            var form1 = document.getElementById('form1');
+            form1.onsubmit = function ()//提交事件
+            {
+                alert(1);
+               // return false; //停止转向action值页面,也就是停止提交
+            };
+
+            var submit1 = document.getElementById("submit1");
+            submit1.onclick = function ()
+            {
+                //模拟表单提交法1
+                form1.submit(); //自己新建按钮模，使用onclick事件拟表单的提交
+
+                //模拟表单提交法2
+                //将事件当一个方法使用，会模拟用户对这个控件的事件操作
+               // document.getElementById("submit2").click();
+            }
+
+        };
+    </script>
+
+</head>
+<body>
+    <form id="form1" action="03控制div显示与隐藏.html" >
+    <!--表单form有menthod属性，他的值可以是post和get，表示提交方式具体见Asp.net
+    action属性值是页面名，比如说hello.html，表示提交到的页面（就是转向这个页面，把数据给这个页面）
+    onsubmit属性值是一个事件，当点击submit按钮时会触发这个事件
+    onsubmit事件的作用是在转向页面时，进行数据有效期的验证，取消提交的方式是：return false-->
+    <input type="button" id="submit1" value ="模拟提交" />
+    <input type="text" />
+    <input type="submit" id="submit2"/><!--这是一个按钮和其他的你定义的type="button" 按钮是不一样的，submit按钮可以使表单提交，而且在提交时触发submit事件-->
+    </form>
+</body>
+</html>

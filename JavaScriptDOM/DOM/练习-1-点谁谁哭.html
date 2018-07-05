@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+        onload = function ()
+        {
+            var btn = document.getElementsByName("btnCry"); //注意我们知道取回的是一个数组，但是我们不会定义var[] btn,因为var本身就是推断类型，而var[]就是一个类型
+            for (var i = 0; i < btn.length; i++)
+            {
+                btn[i].onclick = function ()
+                {
+                    this.value = "呜呜";
+                };
+            }
+        }
+    
+    </script>
+</head>
+<body>
+    <input type="button" name="btnCry" value="哈哈" />
+    <input type="button" name="btnCry" value="哈哈" />
+    <input type="button" name="btnCry" value="哈哈" />
+    <input type="button" name="btnCry" value="哈哈" />
+    <input type="button" name="btnCry" value="哈哈" />
+    <input type="button" name="btnCry" value="哈哈" />
+    <input type="button" name="btnCry" value="哈哈" />
+    <input type="button" name="btnCry" value="哈哈" />
+    <input type="button" name="btnCry" value="哈哈" />
+    <input type="button" name="btnCry" value="哈哈" />
+</body>
+</html>

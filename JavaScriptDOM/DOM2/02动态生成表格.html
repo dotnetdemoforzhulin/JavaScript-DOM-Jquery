@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+        var list = [
+    { id: '1', country: '中国', captial: '北京' }, //把 id: '1'等等看做键值对
+    { id: '1', country: '中国', captial: '北京' },
+    { id: '1', country: '中国', captial: '北京' },
+    { id: '1', country: '中国', captial: '北京' }
+    ];
+
+    onload = function ()
+    {
+        //获取body节点
+        var body = document.getElementsByTagName('body')[0];
+
+        //新建一个table
+        var table = document.createElement('table');
+        table.border = 1;
+        body.appendChild(table);
+
+        //创建标题行
+        var thead = document.createElement('thead');
+        var item0 = list[0]; //获取集合第一行键
+        for (var key in item0)
+        {
+            var th = document.createElement('th');
+            th.innerText = key; //注意我们的标题行是放的是键，而不是值，如果是值就是item[key]
+            table.appendChild(th);
+        }
+
+
+        //遍历集合
+        for (var i = 0; i < list.length; i++)
+        {
+            var item = list[i];
+            //创建行
+            var tr = document.createElement('tr');
+            table.appendChild(tr);
+
+
+            var bgColor;//用来存储原来的颜色
+            //注册鼠标指向行时变色事件
+            tr.onmouseover = function ()
+            {
+                bgColor = this.style.backgroundColor;//存储原来的颜色，用于鼠标来开后恢复
+                this.style.backgroundColor = 'green';
+            }
+            //注册鼠标离开行时恢复原色事件
+            tr.onmouseout = function ()
+            {
+                this.style.backgroundColor = bgColor;
+            }
+
+
+            //设置行的背景色
+            if (i % 2 == 0)//奇数行（从0开始）
+            {
+                tr.style.backgroundColor = 'red';
+            }
+            else
+            {
+                tr.style.backgroundColor = 'blue';
+            }
+
+
+
+            //遍历每一行的属性
+            for (var key in item)
+            {
+                //创建单元格
+                var td = document.createElement('td');
+                td.innerText = item[key];
+                tr.appendChild(td);
+            }
+        }
+    }
+    
+    </script>
+</head>
+<body>
+</body>
+</html>

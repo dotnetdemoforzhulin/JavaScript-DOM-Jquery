@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        onload = function ()
+        {
+            var body = document.getElementsByTagName('body')[0]; //getElementsByTagName()方法，返回的是一个HTMLConllection对象，
+                                                                 //无论当前页面有几个该TagName的元素，该HTMLConllection对象都是一个类似数组的对象
+                                                                 //所以document.getElementsByTagName("body")返回的就是一个数组  即使只有一个元素的数组 也是数组
+            var width = 500, height = 500, left = 10, top = 10;
+            while (true)
+            {
+                var div1 = d = document.createElement('div');
+                div1.style.position = 'absolute';
+                div1.style.left = left + 'px';
+                div1.style.top = top + 'px';
+                div1.style.border = '1px solid blue';
+                div1.style.width = width + 'px';
+                div1.style.height = height + 'px';
+
+                body.appendChild(div1);
+
+                left += 5;
+                top += 5;
+                width -= 10;
+                height -= 10;
+
+
+                if (width <= 0)
+                {
+                    break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--<div style=" position:absolute; left:10px;top:10px;width:500px;height:500px;border:1px solid  red ; ">sss</div>-->
+</body>
+</html>

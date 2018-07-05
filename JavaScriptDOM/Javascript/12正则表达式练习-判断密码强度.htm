@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        onload = function ()
+        {
+            document.getElementById("txtPwd").onblur = function ()//onblur 事件会在对象失去焦点时发生。
+            {
+                var msg = this.value;
+
+                var msgPwd = document.getElementById("msgPwd");
+                if (msg.length < 6)
+                {
+                    msgPwd.innerText = "长度小于6个字符";
+                }
+                else
+                {
+                    //                    //纯字符：弱
+                    //                    if (/^[a-zA-Z]+$/.test(msg)//纯字母
+                    //                    || /^[0-9]+$/.test(msg)//纯数字
+                    //                    || /^[@#$%^&*()]+$/.test(msg))//纯字符
+                    //                    {
+                    //                        msgPwd.innerText = "弱";
+                    //                    }
+
+                    var pwdStrength=0;
+                    if (/[a-zA-Z]/.test(msg))//有一个字母
+                    {
+                        pwdStrength++;
+                    }
+                    if (/[0-9]/.test(msg))//有一个数字
+                    {
+                        pwdStrength++;
+                    }
+
+                    if (/[@#$%^&*()]/.test(msg))//有一个特殊字符
+                    {
+                        pwdStrength++;
+                    }
+                    switch (pwdStrength)
+                    {
+                        case 1: msgPwd.innerText = "弱"; break;
+                        case 2: msgPwd.innerText = "中"; break;
+                        case 3: msgPwd.innerText = "强"; break;
+                    }
+
+
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+<input type="text" id="txtPwd" />
+<span id="msgPwd"></span>
+</html>

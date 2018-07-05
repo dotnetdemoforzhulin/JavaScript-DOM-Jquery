@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+        onload = function ()
+        {
+            //  document.getElementById("btnShow").onclick = function ()
+            //  {
+            //      //event是事件（此处事件是指onclick）发生时，由浏览器创建的一个对象，包含了鼠标位置等信息
+            //      //但是火狐浏览器不支持event
+            //      alert(event);
+            //  }
+
+
+            //我们通过在定义函数时加一个参数e,通过e来获得鼠标的一些信息
+            document.getElementById("btnShow").onclick = function (e)
+            {
+                alert(e.clientX);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btnShow" value="显示" />
+</body>
+</html>

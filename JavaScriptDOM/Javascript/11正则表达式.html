@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+        onload = function ()
+        {
+            ///正则表达式匹配函数test()
+            document.getElementById("btnTest").onclick = function ()
+            {
+                //定义正则表达式在/..../之间
+                var regExp = /\w+@\w+\.\w+/; //电子邮箱
+                var txtMsg = document.getElementById('txtMsg').value;
+                //使用test()函数判断是否匹配
+                if (regExp.test(txtMsg))//匹配成功
+                {
+                    alert("匹配成功");
+                }
+                else
+                {
+                    alert("匹配失败");
+                }
+            }
+
+
+
+            ///根据正则表达式提取字符串exec()
+            document.getElementById('btnExec').onclick = function ()
+            {
+                var regExp1 = /\d+/; //提取数字,仅提取首席匹配值
+                var str = "火警119匪警110移动10086";
+                var result1 = regExp1.exec(str); //如果没有匹配到值就返回null，匹配到值就返回匹配的值
+                alert(result1);
+
+                var regExp2 = /\d+/g; //在正则表达式之外加一个g,表示全局，提取数字，全部进行匹配   
+                while (true)
+                {
+                    var result2 = regExp2.exec(str);
+                    if (result2 == null)
+                    {
+                        break;
+                    }
+                    alert(result2);
+                }
+
+            }
+
+
+            ///提取组
+            document.getElementById("btnExecGroup").onclick = function ()
+            {
+                var str = "火警119匪警110移动10086";
+                var regExp = /\d(\d)\d*/g;
+                while (true)
+                {
+                    //注意返回值第一个是整个正则表达式的值，后一个是正则表达式中括号的匹配值
+                    var result3 = regExp.exec(str);
+                    if (result3 == null)
+                    {
+                        break;
+                    }
+                    alert(result3);
+                }
+            }
+
+
+
+
+            //替换掉字符串中的空格
+            //注意替换函数replace是字符串对象的函数，其他的那些匹配和提取都是正则表达式的函数
+            document.getElementById("btnReplace").onclick = function ()
+            {
+                var regExp = /\s+/g; //注意使用全局模式，这样才能把整个字符串的空格都匹配，如果你不使用全局模式，那么值匹配第一个，这样也就是替换了第一个
+                var str = "  asdfsdf sfd dfsdf   ff";
+                str = str.replace(regExp, '');
+                var txtMsg = document.getElementById("txtMsg");
+                txtMsg.value = str
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txtMsg" />
+    <input type="button" id="btnExec" value="提取exec" />
+    <input type="button" id="btnTest" value="匹配test" />
+    <input type="button" id="btnExecGroup" value="提取组exec" />
+    <input type="button" id="btnReplace" value="替换replace" />
+</body>
+</html>

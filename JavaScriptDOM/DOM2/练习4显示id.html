@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #divShowId
+        {
+            position: absolute;
+            display: none;
+            background-color: Red;
+            color: Black;
+            border:1px,yellow,solid;
+        }
+    </style>
+    <script>
+        onload = function ()
+        {
+            //通过标签拿到所有的按钮
+            var btns = document.getElementsByTagName("input");
+
+            //遍历按钮，绑定事件
+            for (var i = 0; i < btns.length; i++)
+            {
+                btns[i].onmouseover = function (e)
+                {
+                    var divShowId = document.getElementById('divShowId');
+                    divShowId.textContent = this.id;
+                    divShowId.style.display = 'block';
+                    //显示的位置
+                    divShowId.style.left = e.clientX + 'px'; 
+                    divShowId.style.top = e.clientY + 'px';
+
+                };
+                btns[i].onmouseout = function ()
+                {
+                    var divShowId = document.getElementById('bdivShowId');
+                    divShowId.style.display = 'none';
+                };
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="Button1" value="按钮1" />
+    <input type="button" id="Button2" value="按钮2" /> 
+    <input type="button" id="Button3" value="按钮3" />
+    <input type="button" id="Button4" value="按钮4" />
+    <div id="divShowId" style="display: none;">aaaaa
+    </div>
+</body>
+</html>
