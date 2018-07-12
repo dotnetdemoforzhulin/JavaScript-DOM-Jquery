@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <title></title>
+    <!--opacity是不透明度-->
+    <style>
+        #bgDiv
+        {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 1024px;
+            height: 768px;
+            background-color: Black;
+            opacity: 0.1; /*设置层的不透明度，你要是在这里设置为1，则bgDiv之下的层就被完全遮住，看不到了
+            ，当然你要是设置为小于1的值，则不透明较低，可以看到bgDiv层之下的元素，但是是无法使用鼠标操作的*/
+            display: none;
+        }
+        
+        #fgDiv
+        {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            background-color: #e7e7e7;
+            display: none;
+        }
+    </style>
+    <script>
+        $(function ()
+        {
+            $("#btnShow").click(function ()
+            {
+                $("#bgDiv").css("display", "block");
+                $("#fgDiv").css("display", "block");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btnShow" value="显示层" />
+    <div id="fgDiv">
+        123456789</div>
+    <div id="bgDiv">
+    </div>
+</body>
+</html>

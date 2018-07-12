@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://localhost:41642/scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <style>
+        #bgDiv
+        {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 1024px;
+            height: 768px;
+            background-color: Black;
+            opacity: 0.1; /*设置层的不透明度，你要是在这里设置为1，则bgDiv之下的层就被完全遮住，看不到了
+            ，当然你要是设置为小于1的值，则不透明较低，可以看到bgDiv层之下的元素，但是是无法使用鼠标操作的*/
+            display: none;
+        }
+        
+        #fgDiv
+        {
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            background-color: #e7e7e7;
+            display: none;
+        }
+    </style>
+    <script>
+        var list = [
+	{ id: '1', country: '中国', capital: '北京' },
+	{ id: '2', country: '美国', capital: '华盛顿' },
+	{ id: '3', country: '日本', capital: '东京' },
+	{ id: '4', country: '韩国', capital: '首尔' }
+                   ];
+
+        $(function ()
+        {
+
+
+            //----------------------------------------------------------------------------------------------------------------生成表格数据
+            $.each(list, function ()
+            {
+                $("<tr id='" + this.id + "'><td><input type='checkbox' </td>" +
+           " <td>" + this.id + "</td>" +
+            "<td>" + this.country + "</td>" +
+            "<td>" + this.capital + "</td>" +
+            "<td><input type='button' value='修改'/></td></tr>").appendTo("#list");
+            });
+
+
+
+
+
+            //----------------------------------------------------------------------------------------------------------------为复选框chkALL设置点击事件，完成全选的功能
+            $("#chkAll").click(function ()//chkAll是表格标题行的那个复选框
+            {
+                //拿到非标题行的复选框
+                $("#list :checkbox").attr("checked", this.checked)//这里的this.checked是标题行的那个复选框，根据标题行的复选框是否选中，来给下面的各个复选框确定是否选中
+            });
+
+
+
+
+
+            //----------------------------------------------------------------------------------------------------------------反选按钮
+            $("#btnReverse").click(function ()
+            {
+                $("#list :checkbox").each(function ()//注意此处是使用想要循环的对象直接调用each（），这样我们就可以操作循环（就是循环次数），而$.each()是隐式迭代
+                {
+                    this.checked = !this.checked; //这就是弱类型语言的特点，其实checked并不是bool类型，但是你使用取非也可以
+                });
+            });
+
+
+
+
+
+            //----------------------------------------------------------------------------------------------------------------删除按钮
+            $("#btnDel").click(function ()
+            {
+                //删除前的确认
+                if (confirm("提示：确认删除吗"))//confirm是一个确认窗口
+                {
+                    //获取所有数据行中选中的checkbox，他的父级是th,th的父级是tr，我们要删除就是行
+                    //  $("#list :checked").parent().parent().remove();
+                    //当然你也可以把选中的复选框的所有祖宗都找到，在从他的所有祖宗中找到你要删除的
+                    $("#list :checked").parents("tr").remove()
+                }
+            });
+
+
+
+
+
+            //----------------------------------------------------------------------------------------------------------------添加按钮
+            $("#btnAdd").click(function ()
+            {
+                //显示添加界面
+                $("#bgDiv").css("display", "block")
+                .css("width", window.innerWidth + "px")//设置bgdiv沾满整个界面
+                .css("height", window.innerHeight + "px");
+                $("#fgDiv").css("display", "block")
+                .css("left", (window.innerWidth - 200) / 2 + "px")//设置fgDiv居中
+                .css("top", (window.innerHeight - 200) / 2 + "px");
+
+                //清空文本框和隐藏域
+                $("#fgDiv :text ,:hidden").val(" ");
+            });
+
+
+
+
+
+            //----------------------------------------------------------------------------------------------------------------添加界面的——保存按钮
+            $("#btnSave").click(function ()
+            {
+                var id = $("#hidId").val();
+                if (id == " ")//若果隐藏域的内容为空，则就是添加
+                {
+                    $("<tr id='" + $("#txtId").val() + "'><td><input type='checkbox' k" + $("#txtId").val() + " '></td>" +
+            "<td>" + $("#txtId").val() + "</td>" +
+             "<td>" + $("#txtCountry").val() + "</td>" +
+            "<td>" + $("#txtCapital").val() + "</td>" +
+             "<td><input type='button' value='修改'/></td></tr>").appendTo("#list"); //.find(":button").click(function ()
+
+
+                    $("#list :button:last").click(function ()//添加一行之后，我们要给这新添加的一行的修改按钮添加修改事件
+                    {
+                        //显示添加界面
+                        $("#bgDiv").css("display  ", "block")
+                .css("width", window.innerWidth + "px")//设置bgdiv沾满整个界面
+                .css("height", window.innerHeight + "px");
+                        $("#fgDiv").css("display", "block")
+                .css("left", (window.innerWidth - 200) / 2 + "px")//设置fgDiv居中
+                .css("top", (window.innerHeight - 200) / 2 + "px");
+
+                        //找到当前按钮所在的td之前的所有td,因为数据在这些td中
+                        var tds = $(this).parent().prevAll(); //注意这里的this是<input>,他的父级是td
+                        //注意使用preAll()获取td之前的所有同级元素，但是你要注意的是他获取的顺序，从后往前
+
+                        $("#hidId").val(tds.eq(2).text()); //添加了一个隐藏域；作用是在修改后查找原始数据的行
+
+                        $("#txtId").val(tds.eq(2).text());
+                        $("#txtCountry").val(tds.eq(1).text());
+                        $("#txtCapital").val(tds.eq(0).text());
+                    })
+                   
+
+                }
+
+                else//修改
+                {
+                    var tds = $("#" + id + ">td");
+                    tds.eq(1).text($("#txtId").val());
+                    tds.eq(2).text($("#txtCountry").val());
+                    tds.eq(3).text($("#txtCapital").val());
+
+                    //修改tr的id属性，保持数据一致
+                    $("#" + id).attr("id", $("#txtId").val());
+                }
+
+
+                //在添加后关闭保存界面（就是隐藏保存界面）
+                $("#bgDiv").css("display", "none");
+                $("#fgDiv").css("display", "none");
+            });
+
+
+            //----------------------------------------------------------------------------------------------------------------修改
+            $("#list :button").click(function ()
+            {
+
+                //显示添加界面
+                $("#bgDiv").css("display", "block")
+                .css("width", window.innerWidth + "px")//设置bgdiv沾满整个界面
+                .css("height", window.innerHeight + "px");
+                $("#fgDiv").css("display", "block")
+                .css("left", (window.innerWidth - 200) / 2 + "px")//设置fgDiv居中
+                .css("top", (window.innerHeight - 200) / 2 + "px");
+
+                //找到当前按钮所在的td之前的所有td,因为数据在这些td中
+                var tds = $(this).parent().prevAll(); //注意这里的this是<input>,他的父级是td
+                //注意使用preAll()获取td之前的所有同级元素，但是你要注意的是他获取的顺序，从后往前
+
+                $("#hidId").val(tds.eq(2).text()); //添加了一个隐藏域；作用是在修改后查找原始数据的行
+
+                $("#txtId").val(tds.eq(2).text());
+                $("#txtCountry").val(tds.eq(1).text());
+                $("#txtCapital").val(tds.eq(0).text());
+
+
+
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btnAdd" value="添加" />
+    <input type="button" id="btnReverse" value="反选" />
+    <input type="button" id="btnDel" value="删除" />
+    <table border="1">
+        <thead>
+            <th width="100">
+                <input type="checkbox" id="chkAll" />
+            </th>
+            <th width="100">
+                编号
+            </th>
+            <th width="100">
+                国家
+            </th>
+            <th width="100">
+                首都
+            </th>
+            <th width="100">
+                修改
+            </th>
+        </thead>
+        <tbody id="list">
+        </tbody>
+    </table>
+    <div id="bgDiv">
+    </div>
+    <div id="fgDiv">
+        <input type="hidden" id="hidId" /><!--隐藏域  -->
+        编号：
+        <input type="text" id="txtId" /><br />
+        国家：
+        <input type="text" id="txtCountry" /><br />
+        首都：
+        <input type="text" id="txtCapital" /><br />
+        <input type="button" id="btnSave" value="保存" />
+    </div>
+</body>
+</html>

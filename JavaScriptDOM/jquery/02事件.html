@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <title></title>
+    <script>
+        //注意Jquery中的事件和DOM中的事件都是一样的，只是把DOM中的事件名中的on去掉，比如说onclick改为click
+        //绑定事件时，不是使用等号，而是写在括号中
+        onload = function ()
+        {
+            $('#btn').click(function ()
+            {
+                alert(this.value); //注意this是DOM对象，表示当前的按钮，这时你就不能使用this.val()来获取value属性值，因为，val()是JQuery对象的方法，只有JQuery对象才可以调用
+            });
+
+            //注意这和上面是同一个事件click
+            //JQuery的事件支持多播，也就是一个事件可以注册多个函数
+            $('#btn').click(function ()
+            {
+                alert("aaaaaaaaaa"); 
+            });
+             //注意以上给同一个元素绑定了一个事件click，但是呢！这个click事件我们给了两个函数，在click事件发生后他会分别执行两个函数
+             //但是你通过DOM的方式获取了btn元素，给他绑定事件，后一个函数，会覆盖前一个函数，也就说只会只执行最后一个函数
+             //简而言之 DOM的事件注册：一个事件只能注册一个处理函数，不支持多播
+
+
+             //也可以使用bind方式绑定事件
+            $("#btn1").bind("click", function ()
+            {
+                alert("111111111");
+            });
+
+            //解除事件绑定
+            // $("btn").unbind ("click");
+
+        }
+
+        //ready()函数是绑定在document上的一个函数，指的是DOM就绪:也就是标签加载完成
+        //注意这个加载和onload加载是不一样的，Jquery中的ready函数加载，在加载完各个标签就可以了，而onload 是要把所有东西，都加载出来
+        //所以以后哦我们使用ready函数，
+        $(document).ready(function ()
+        {
+
+        });
+        //可以简写为
+        $(function ()
+        {
+
+        });
+
+
+        
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="按钮" />
+    <input type ="button" id="btn1" value="按钮1" />
+</body>
+</html>

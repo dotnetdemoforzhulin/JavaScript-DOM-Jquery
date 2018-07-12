@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://localhost:41642/scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script>
+        $(function ()
+        {
+            //为“全部右移”按钮绑定事件
+            $("#btnRightAll").click(function ()
+            {
+                //获取所有子元素,追加到右边的select中
+                $("#selectLeft").children().appendTo("#selectRight");
+                //使用append也可以
+                //$("#selectLeft").children().append($("#selectRight option");
+            });
+
+            //为“选中的右移”按钮绑定事件
+            $("#btnRight").click(function ()
+            {
+                //获取所有被选中的option,怎么获取选中的option呢，见文档的筛选器-表单对象属性
+                $("#selectLeft  option:selected").appendTo("#selectRight");
+            });
+
+
+            //为"全部左移“按钮绑定事件
+            $("#btnLeftAll").click(function ()
+            {
+                $("#selectRight").children().appendTo("#selectLeft");
+            });
+
+            //为”选中的右移“按钮绑定事件
+            $("#btnLeft").click(function ()
+            {
+                $("#selectRight option:selected").appendTo("#selectLeft");
+            });
+        });
+    </script>
+</head>
+<body>
+    <select id="selectLeft" multiple="true">
+        <option>北京</option>
+        <option>上海</option>
+        <option>广州</option>
+        <option>深圳</option>
+        <input type="button" id="btnRightAll" value=">>" />
+        <input type="button" id="btnRight" value=">" />
+        <input type="button" id="btnLeftAll" value="<<" />
+        <input type="button" id="btnLeft" value="<" />
+        <select id="selectRight" multiple="true">
+        </select>
+</body>
+</html>

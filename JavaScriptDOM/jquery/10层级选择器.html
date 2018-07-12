@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <title></title>
+    <script>
+        $(function ()
+        {
+            $("#d1 div"); //空格 这样是获取的d1下面的所有子集，通过调试自己去看
+            $("#d1>div"); //大于号取的是直接子集，不包含后代子元素
+            $("#d1+div"); //加号表示之后紧邻的一个同级元素
+            $("#d1~div"); //波浪线表示之后所有的同级元素
+            //注意层级选择器中空格表示选择所有的子集，所以在使用其他的选择器时，一定要注意不要输入空格
+
+
+            //注意还有一些标签的筛选函数见文档
+        
+            //first() 
+            //last() 
+     
+            //查找
+            //children([expr]) 
+   
+            //find(expr|obj|ele) 
+            //next([expr]) 
+            //nextall([expr]) 
+          
+            //offsetParent() 
+            //parent([expr]) 
+            //parents([expr]) 
+         
+            //prev([expr]) 
+            //prevall([expr]) 
+          
+            //siblings([expr]) 
+
+        });
+    </script>
+</head>
+<body>
+    <div id="d1">
+        <div id="d11">
+        </div>
+        <div id="d12">
+            <div id="d121">
+            </div>
+            <div id="d122">
+            </div>
+        </div>
+        <div id="d13">
+        </div>
+    </div>
+    <div id="d2">
+    </div>
+    <div id="d3">
+        <div id="d31">
+            <div id="d311">
+            </div>
+            <div id="d312">
+            </div>
+            <div id="313">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

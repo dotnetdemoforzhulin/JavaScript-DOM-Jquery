@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <title></title>
+    <script>
+        $(function ()
+        {
+            $("li").hover(function ()
+            {
+                //$(this).css("background-color", "red").prevAll().css("background-color", "yellow"); //当前节点设置为背景色红色，这个节点之前的所有节点设置为黄色
+                //注意使用了prevAll()函数之后返回的是选择的this节点（代表li）的之前的所有节点，所以链式编程的那个链被破坏了
+                //可是我们还想接着这个this（指的是li）写，那没我们可以使用end()来恢复最近一次的链式破坏
+                //在$(this)之后的所有节点设置为绿色
+                $(this).css("background-color", "red").prevAll().css("background-color", "yellow").end().nextAll().css("background-color", "green")
+            }, function ()
+            {
+             $("li").css("background-color","white");
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>北京</li>
+        <li>上海</li>
+        <li>广州</li>
+        <li>深圳</li>
+    </ul>
+</body>
+</html>

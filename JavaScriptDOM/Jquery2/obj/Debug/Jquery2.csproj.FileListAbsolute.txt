@@ -1,0 +1,4 @@
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\Jquery2\bin\Jquery2.dll
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\Jquery2\bin\Jquery2.pdb
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\Jquery2\obj\Debug\Jquery2.dll
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\Jquery2\obj\Debug\Jquery2.pdb

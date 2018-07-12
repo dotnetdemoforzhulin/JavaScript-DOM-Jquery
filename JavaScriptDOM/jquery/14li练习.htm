@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <title></title>
+    <script>
+        $(function ()
+        {
+            $("li").hover(
+            //鼠标指向
+            function ()
+            {
+                $(this).css({ "color": "red", "cursor": "pointer" });
+            },
+            //鼠标离开
+            function ()
+            {
+                $(this).css("color", "black");
+            }).click(function ()//链式编程，点击li时将该li添加到ul2
+            {
+                $(this).appendTo($("#ul2"));
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li>北京</li>
+        <li>上海</li>
+        <li>广州</li>
+        <li>深圳</li>
+    </ul>
+    <ul id="ul2">
+    </ul>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <title></title>
+    <script>
+        var list = [
+	{ id: '1', country: '中国', capital: '北京' },
+	{ id: '2', country: '美国', capital: '华盛顿' },
+	{ id: '3', country: '日本', capital: '东京' },
+	{ id: '4', country: '韩国', capital: '首尔' }
+];
+
+        $(function ()
+        {
+            //遍历集合，创建tr与td
+            $.each(list, function (index, item)
+            {
+                $("<tr><td>" + item.id + "</td><td>" + item.country + "</td><td>" + item.capital + "</td></tr>").appendTo("#list");
+            });
+            //为奇偶行指定不同的颜色
+            $("#list tr:even").css("background-color", "gray");
+            $("#list tr:odd").css("background-color", "green");
+            //指定鼠标移向和移开事件
+            $("#list tr").hover(function ()
+            {
+                bgColor = $(this).css("background-color"); //注意这里的bgColor，我们并没有使用var 声明，他默认是声明到window上的，所以
+                $(this).css("backgroun d-color", "blue");
+            }, function ()
+            {
+                $(this).css("background-color", bgColor); //切记变量就不要再加引号了 包括this，千万就不要加引号了
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <th width="100">
+                编号
+            </th>
+            <th width="100">
+                国家
+            </th>
+            <th width="100">
+                首都
+            </th>
+        </thead>
+        <tbody id="list">
+        </tbody>
+    </table>
+</body>
+</html>

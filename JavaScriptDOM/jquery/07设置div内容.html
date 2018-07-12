@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <title></title>
+    <script>
+        $(function ()
+        {
+            $("#btn").click(function ()
+            {
+                //对于标签对，使用text()或html()来设置或获取
+                //设置div内容
+                $("#div").text("这是一个div");
+                //获取div内容
+                alert($("#div1").text());
+            });
+        });
+    
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="显示" />
+    <div id="div">
+    </div>
+    <div id="div1">
+        abcd</div>
+</body>
+</html>
