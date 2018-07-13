@@ -1,0 +1,4 @@
+d:\documents\visual studio 2010\Projects\jquery练习\微博界面仿写\bin\微博界面仿写.dll
+d:\documents\visual studio 2010\Projects\jquery练习\微博界面仿写\bin\微博界面仿写.pdb
+d:\documents\visual studio 2010\Projects\jquery练习\微博界面仿写\obj\Debug\微博界面仿写.dll
+d:\documents\visual studio 2010\Projects\jquery练习\微博界面仿写\obj\Debug\微博界面仿写.pdb
