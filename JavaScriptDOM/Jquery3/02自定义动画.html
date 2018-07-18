@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-1.7.1.min.js" type="text/javascript"></script>
+    <style>
+        #div1
+        {
+            width: 100px;
+            height: 100px;
+            background-color: Black;
+        }
+    </style>
+    <script>
+        $(function ()
+        {
+            ///自定义动画
+            $("#btnAnimate").click(function ()
+            {
+                ///自定义动画函数animate(),第一个参数是改变后的样式（也就是目标样式），第二个参数是时间
+                ///注意不是所有的样式都可以设置动画的，只有值是数字的样式才能设置动画，背景色的值不是数字所以就不能设置动画
+                ///而高度height，宽度width，不透明度opacity 等值就是数字，所以可以设置动画
+                ///使用链式编程可以将多个动画拼接起来
+                $("#div1").animate({ "width": "50px", "height": "50px" }, 3000)
+                .animate({ "opacity": "0.5" }, 3000); //注意链式编程将动画拼接起来，动画是在前一个完成后，一个接一个的进行，而不是同时进行
+            });
+
+            ///停止动画
+            ///注意：我们使用  $(":animated")来获取当前动画对象
+            $("#btnStop").click(function ()
+            {
+                $(":animated").stop();//stop()只是停止当前的动画，后续动画会继续播放
+            });
+
+            $("#btnStopAll").click(function ()
+            {
+                $(":animated").stop(true);//stop(true)表示停止这之后的所有的动画队列
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btnAnimate" value="动画" />
+    <input type="button" id="btnStop" value="停止当前动画" />
+    <input type="button" id="btnStopAll" value="停止所有动画" />
+    <div id="div1">
+    </div>
+</body>
+</html>

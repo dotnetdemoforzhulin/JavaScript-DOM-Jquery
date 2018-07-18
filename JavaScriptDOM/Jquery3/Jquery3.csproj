@@ -6,12 +6,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{685E1879-7832-4AF9-A0DE-0B794803FD5A}</ProjectGuid>
+    <ProjectGuid>{F6903BEC-5AE6-4FBD-9667-F660813DED2A}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>jquery</RootNamespace>
-    <AssemblyName>jquery</AssemblyName>
+    <RootNamespace>Jquery3</RootNamespace>
+    <AssemblyName>Jquery3</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -50,28 +50,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="01基本选择器.html" />
-    <Content Include="02事件.html" />
-    <Content Include="03练习-点谁谁哭.html" />
-    <Content Include="04合成事件.html" />
-    <Content Include="05调用js成员.html" />
-    <Content Include="06加法计算器.html" />
-    <Content Include="07设置div内容.html" />
-    <Content Include="08动态操作元素.html" />
-    <Content Include="09省市联动.html" />
-    <Content Include="10层级选择器.html" />
-    <Content Include="10过滤选择器.html" />
-    <Content Include="11样式操作.html" />
-    <Content Include="12开关灯.html" />
-    <Content Include="13链式编程.html" />
-    <Content Include="14li练习.htm" />
-    <Content Include="15选择器-针对table的练习.html" />
-    <Content Include="16选择器-针对ul的练习-链式编程.htm" />
-    <Content Include="scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="scripts\jquery-1.7.1.js" />
-    <Content Include="scripts\jquery-1.7.1.min.js" />
-    <Content Include="scripts\jquery-ui.min.js" />
-    <Content Include="scripts\jquery.cookie.js" />
+    <Content Include="02自定义动画.html" />
+    <Content Include="03模仿飞秋.html" />
+    <Content Include="04标签页.html" />
+    <Content Include="05图片轮换.html" />
+    <Content Include="06cookie练习.htm" />
+    <Content Include="07jquery-ui.htm" />
+    <Content Include="08Jquery-zoom.html" />
+    <Content Include="css\images\ui-icons_444444_256x240.png" />
+    <Content Include="css\images\ui-icons_555555_256x240.png" />
+    <Content Include="css\images\ui-icons_777620_256x240.png" />
+    <Content Include="css\images\ui-icons_777777_256x240.png" />
+    <Content Include="css\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\jquery-ui.theme.min.css" />
+    <Content Include="css\jqzoom.css" />
+    <Content Include="images\big.png" />
+    <Content Include="images\small.png" />
+    <Content Include="script\jquery-1.7.1.min.js" />
+    <Content Include="script\jquery-ui.min.js" />
+    <Content Include="script\jquery.cookie.js" />
+    <Content Include="script\jquery.jqzoom.js" />
+    <Content Include="script\jquery.jqzoom2.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -79,6 +79,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="01动画.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,7 +92,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>41642</DevelopmentServerPort>
+          <DevelopmentServerPort>33477</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

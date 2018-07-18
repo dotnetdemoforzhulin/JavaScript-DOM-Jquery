@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="jquery-1.7.1.min.js" type="text/javascript"></script>
+    <title></title>
+    <style>
+        .title
+        {
+            width: 100px;
+            height: 30px;
+            border: 1px solid red;
+            margin: 3px; 
+            float: left; /*float 属性定义元素在哪个方向浮动。*/
+        }
+        
+        .content
+        {
+            width:424px; 
+            height:300px;
+            border:1px solid blue;
+            margin:3px;
+            clear:both; /*clear:both;/* clear 属性定义了元素的哪边上不允许出现浮动元素。both则表示两侧均不允许有浮动元素*/ 
+        } 
+    </style>
+    <script>
+        $(function ()
+        {
+            $(".title").mouseover(function ()
+            {
+                var divContent = $(".content");
+                switch (parseInt(this.id))//注意将this.id转换为int
+                {
+                    case 0: divContent.html("<h1>西部世界</h1>"); 
+                        break;
+                    case 1: divContent.html("<h1>李狗嗨</h1>");
+                        break;
+                    case 2: divContent.html("<h1>神探夏洛克</h1>");
+                        break;
+                    case 3: divContent.html("<h1>初恋这件小事</h1>");
+                        break;
+
+                }
+            });
+        });
+    
+    </script>
+
+</head>
+<body>
+    <div class="title" id="0">
+        美剧</div>
+    <div class="title" id="1">
+        日剧</div>
+    <div class="title" id="2">
+        英剧</div>
+    <div class="title" id="3">
+        泰剧</div>
+    <div class="content">
+    </div>
+</body>
+</html>

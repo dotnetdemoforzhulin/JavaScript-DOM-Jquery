@@ -1,0 +1,4 @@
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\Jquery3\bin\Jquery3.dll
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\Jquery3\bin\Jquery3.pdb
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\Jquery3\obj\Debug\Jquery3.dll
+D:\Documents\Visual Studio 2010\Projects\JavaScript DOM\Jquery3\obj\Debug\Jquery3.pdb

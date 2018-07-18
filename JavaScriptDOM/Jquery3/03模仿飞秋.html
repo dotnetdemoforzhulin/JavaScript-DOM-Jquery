@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script>
+        $(function ()
+        {
+            //初始时隐藏所有的<ul>
+            $("ul").hide();
+            //为span添加点击事件
+            $("span").css("cursor", "pointer").click(function ()
+            {
+                $(this).next().next().slideDown(1000)//span后面的元素<br>的后面的元素<ul>实现展开动画
+                .siblings("ul").slideUp(1000); //找到ul的众多兄弟中的ul兄弟,在你选择的span后面的ul展开时，其他的ul就收起
+            });
+        });
+    </script>
+</head>
+<body>
+    <span>我的好友</span><br />
+    <ul>
+        <li>张三</li>
+        <li>李四</li>
+        <li>王五</li>
+        <li>赵六</li>
+        <li>周七</li></ul>
+    <span>黑名单</span><br />
+    <ul>
+        <li>小明</li>
+        <li>小亮</li>
+        <li>小红</li>
+        <li>小花</li></ul>
+</body>
+</html>
